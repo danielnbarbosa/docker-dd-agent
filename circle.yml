@@ -9,12 +9,12 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - docker build -t danielnbarbosa/docker-dd-agent .
-    - mkdir -p ~/docker; docker save danielnbarbosa/docker-dd-agent > ~/docker/image.tar
+    - docker build -t danielnbarbosa/dd-agent .
+    - mkdir -p ~/docker; docker save danielnbarbosa/dd-agent > ~/docker/image.tar
 
 test:
   override:
-    - /bin/bash -c "/usr/bin/docker run -d --privileged --name dd-agent -h `hostname` -v /var/run/docker.sock:/var/run/docker.sock -v /proc/mounts:/host/proc/mounts:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e API_KEY=foo danielnbarbosa/docker-dd-agent"
+    - /bin/bash -c "/usr/bin/docker run -d --privileged --name dd-agent -h `hostname` -v /var/run/docker.sock:/var/run/docker.sock -v /proc/mounts:/host/proc/mounts:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e API_KEY=foo danielnbarbosa/dd-agent"
 
 deployment:
   coreos: 

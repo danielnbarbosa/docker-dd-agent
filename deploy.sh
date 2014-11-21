@@ -3,8 +3,8 @@
 SHA1=$1
 
 # Deploy image to Docker Hub
-#docker push danielnbarbosa/docker-dd-agent:$SHA1
-docker push danielnbarbosa/docker-dd-agent
+#docker push danielnbarbosa/dd-agent:$SHA1
+docker push danielnbarbosa/dd-agent
 
 # Deploy to CoreOS cluster
-ssh core@54.67.14.65 -C 'fleetctl stop datadog-dd-agent@{1..3}.service; fleetctl start datadog-dd-agent@{1..3}.service'
+ssh core@54.67.14.65 -C 'fleetctl stop dd-agent@{1..3}.service; fleetctl start dd-agent@{1..3}.service'
