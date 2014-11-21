@@ -14,7 +14,7 @@ dependencies:
 
 test:
   override:
-    - /usr/bin/bash -c "/usr/bin/docker run --privileged --name dd-agent -h `hostname` -v /var/run/docker.sock:/var/run/docker.sock -v /proc/mounts:/host/proc/mounts:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro` danielnbarbosa/docker-dd-agent"
+    - /usr/bin/bash -c "/usr/bin/docker run --privileged --name dd-agent -h `hostname` -v /var/run/docker.sock:/var/run/docker.sock -v /proc/mounts:/host/proc/mounts:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro danielnbarbosa/docker-dd-agent"
 
 deployment:
   coreos: 
